@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true" scan="true"
+               scanPeriod="30 seconds">
+    <property resource="application.properties"/>
+    <appender name="Console-Appender"
+              class="ch.qos.logback.core.ConsoleAppender">
+        <layout>
+            <pattern>%-15([%date{yyyy-MM-dd;HH:mm:ss}]) [%thread] %-5level %logger{32} - %msg%n
+            </pattern>
+        </layout>
+    </appender>
+
+    <!--<appender name="STASH" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+        <destination>${LOGSTASH_ENDPOINT}</destination>
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder" >
+            <customFields>{"application":"pfs", "environment":"${SERVER_ENVIRONMENT}"}</customFields>
+            <providers>
+            </providers>
+        </encoder>
+    </appender>
+
+    <logger name="ro.fortsoft.elk.testdata" level="INFO" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="STASH"/>
+    </logger>
+-->
+    <logger name="jdbc" level="FINE">
+        <appender-ref ref="Console-Appender"/>
+    </logger>
+    <root level="DEBUG">
+        <appender-ref ref="Console-Appender"/>
+        <!--<appender-ref ref="STASH" />-->
+    </root>
+</configuration>

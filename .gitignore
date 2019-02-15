@@ -1,12 +1,3 @@
-
 /.idea/
-.idea/compiler.xml
-.idea/encodings.xml
-.idea/misc.xml
-.idea/sonarIssues.xml
-.idea/sonarlint/
-.idea/uiDesigner.xml
-.idea/workspace.xml
 src/test/
-target/
 
