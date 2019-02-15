@@ -217,6 +217,7 @@
                 <filtering>true</filtering>
             </resource>
         </resources>
+        <finalName>bankservice</finalName>
         <pluginManagement>
             <plugins>
                 <plugin>
