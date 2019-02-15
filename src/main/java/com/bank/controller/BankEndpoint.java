@@ -1,7 +1,5 @@
 package com.bank.controller;
 
-import org.eclipse.microprofile.opentracing.Traced;
-
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -22,7 +20,6 @@ public class BankEndpoint {
 
     @GET
     @Path("{account}")
-    @Traced
     @Produces(MediaType.APPLICATION_JSON)
     public String getAmount(@PathParam("account") String account) {
 
