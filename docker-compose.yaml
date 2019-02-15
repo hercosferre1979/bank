@@ -1,0 +1,26 @@
+version: '3'
+
+
+services:
+
+  bank-backend:
+    container_name: bank-container
+    image: bank-service
+    ports:
+      - "38081:8080"
+      - "9050:9009"
+    restart: always
+    entrypoint:
+      - java
+      - -Xdebug
+      - -Xrunjdwp:transport=dt_socket,address=9009,server=y,suspend=n
+      - -jar
+      - /opt/payara/payara-micro.jar
+    command: ["--postbootcommandfile","deployments2/postboot.txt","--deploy", "deployments2/bankservice.war"]
+    networks:
+      - webnet
+
+networks:
+  webnet:
+    external:
+      name: my-toys-service-network
